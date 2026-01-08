@@ -12,7 +12,6 @@ class BrandText extends StatelessWidget {
       fontSize: fontSize,
       fontWeight: FontWeight.w800,
       height: 45 / fontSize!,
-     
     );
 
     return RichText(
@@ -20,9 +19,10 @@ class BrandText extends StatelessWidget {
         text: "Vino",
         children: [
           TextSpan(
-            text: "Wallet",
+            text: " Wallet",
             style: parentStyle.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
+              // letterSpacing: 1.5,
             ),
           ),
         ],
