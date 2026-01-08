@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:vino/screens/splash.dart';
+import 'package:vino/utils/themes/theme.dart';
 
 void main() {
-  runApp(const Vino());
+  runApp(Vino());
 }
 
 class Vino extends StatelessWidget {
@@ -9,7 +11,12 @@ class Vino extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "Vino Wallet", home: Text("Hello vino"));
+    return MaterialApp(
+      title: "Vino Wallet",
+      themeMode: ThemeMode.system,
+      theme: VinoAppTheme.lightMode,
+      darkTheme: VinoAppTheme.darkMode,
+      home: SplashView(),
+    );
   }
-
 }
