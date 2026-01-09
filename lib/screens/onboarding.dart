@@ -13,6 +13,16 @@ class _OnboardingState extends State<Onboarding> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: BrandText(fontSize: 23), centerTitle: true),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(24),
+        child: Column(
+          children: [
+            FilledButton(onPressed: () {}, child: Text("Login")),
+            SizedBox(height: 6),
+            OutlinedButton(onPressed: () {}, child: Text("Create Account")),
+          ],
+        ),
+      ),
     );
   }
 }
