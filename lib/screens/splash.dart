@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vino/screens/onboarding.dart';
+
+import 'package:vino/screens/home.dart';
 import 'package:vino/widgets/brand_text.dart';
 
 class SplashView extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SplashViewState extends State<SplashView> {
       Duration(seconds: 3),
       () => Navigator.of(
         context,
-      ).pushReplacement(MaterialPageRoute(builder: (context) => Onboarding())),
+      ).pushReplacement(MaterialPageRoute(builder: (context) => Home())),
     );
   }
 
