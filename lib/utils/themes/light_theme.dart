@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vino/utils/constants/brand_colors.dart';
+import 'package:vino/utils/themes/components/button_theme.dart';
 
 ThemeData lightTheme = ThemeData().copyWith(
   colorScheme: ColorScheme.fromSeed(
@@ -12,4 +13,6 @@ ThemeData lightTheme = ThemeData().copyWith(
   ),
   textTheme: GoogleFonts.dmSansTextTheme(),
   scaffoldBackgroundColor: Colors.white,
+  filledButtonTheme: VinoButtonTheme.filledButtonTheme,
+  outlinedButtonTheme: VinoButtonTheme.outlinedButtonTheme
 );
