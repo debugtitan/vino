@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:vino/utils/constants/onboarding_items.dart';
 import 'package:vino/widgets/brand_text.dart';
 import 'package:vino/widgets/dots_indicators.dart';
@@ -22,74 +21,86 @@ class _OnboardingState extends State<Onboarding> {
   }
 
   @override
+  void dispose() {
+    _pageViewController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: BrandText(fontSize: 23), centerTitle: true),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(
-            child: PageView.builder(
-              onPageChanged: (value) => setState(() {
-                _currentPageIndex = value;
-              }),
-              itemCount: onboardingItems.length,
-              controller: _pageViewController,
-              itemBuilder: (context, index) => Image.asset(
-                onboardingItems[index].image,
-                width: 220,
-                height: 240,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 5,
+              child: PageView.builder(
+                controller: _pageViewController,
+                itemCount: onboardingItems.length,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentPageIndex = index;
+                  });
+                },
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Column(
+                      children: [
+                        Image.asset(onboardingItems[index].image),
+
+                        const SizedBox(height: 60),
+                        DotsIndicator(
+                          count: onboardingItems.length,
+                          index: _currentPageIndex,
+                        ),
+                        const SizedBox(height: 50),
+                        Text(
+                          onboardingItems[_currentPageIndex].title,
+                          key: ValueKey('title-$_currentPageIndex'),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          onboardingItems[_currentPageIndex].description,
+                          key: ValueKey('desc-$_currentPageIndex'),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
             ),
-          ),
-          // const SizedBox(height: 14),
-          DotsIndicator(
-            count: onboardingItems.length,
-            index: _currentPageIndex,
-          ),
-          const SizedBox(height: 14),
-          Padding(
-            padding: EdgeInsets.all(24),
-            child: Column(
-              children: [
-                AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  child: Text(
-                    softWrap: true,
-                    onboardingItems[_currentPageIndex].title,
-                    key: ValueKey(_currentPageIndex),
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontSize: 23,
-                      height: 33 / 23,
-                      fontWeight: FontWeight.w600,
-                      color: Theme.of(context).colorScheme.onSurface,
-                    ),
-                  ),
-                ),
 
-                const SizedBox(height: 12),
-                AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 300),
-                  child: Text(
-                    onboardingItems[_currentPageIndex].description,
-                    key: ValueKey('desc-$_currentPageIndex'),
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 16,
-                      height: 26 / 16,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton(
+                      onPressed: () {},
+                      child: const Text("Login"),
                     ),
                   ),
-                ),
-                const SizedBox(height: 32),
-                FilledButton(onPressed: () {}, child: Text("Login")),
-                SizedBox(height: 6),
-                OutlinedButton(onPressed: () {}, child: Text("Create Account")),
-              ],
+                  const SizedBox(height: 14),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      child: const Text("Create Account"),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
