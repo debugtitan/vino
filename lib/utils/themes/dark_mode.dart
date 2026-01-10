@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 import "package:vino/utils/constants/brand_colors.dart";
 import 'package:vino/utils/themes/components/button_theme.dart';
+import 'package:vino/utils/themes/components/text_theme.dart';
 
 ThemeData darkTheme = ThemeData().copyWith(
   colorScheme: ColorScheme.fromSeed(
@@ -12,8 +13,18 @@ ThemeData darkTheme = ThemeData().copyWith(
     onSurface: Colors.white,
   ),
   brightness: Brightness.dark,
-  textTheme: GoogleFonts.dmSansTextTheme(),
+  textTheme: VinoTextTheme.darkTextTheme,
   scaffoldBackgroundColor: BrandColors.surface,
   filledButtonTheme: VinoButtonTheme.filledButtonTheme,
   outlinedButtonTheme: VinoButtonTheme.outlinedButtonTheme,
+  appBarTheme: AppBarTheme(
+    systemOverlayStyle: SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarIconBrightness: Brightness.light,
+      // systemNavigationBarContrastEnforced: false,
+    ),
+  ),
 );
