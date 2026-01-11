@@ -16,7 +16,7 @@ ThemeData darkTheme = ThemeData().copyWith(
   textTheme: VinoTextTheme.darkTextTheme,
   scaffoldBackgroundColor: BrandColors.surface,
   filledButtonTheme: VinoButtonTheme.filledButtonTheme,
-  outlinedButtonTheme: VinoButtonTheme.outlinedButtonTheme,
+  outlinedButtonTheme: VinoButtonTheme.outlinedButtonTheme(Brightness.dark),
   appBarTheme: AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,

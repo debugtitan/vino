@@ -17,6 +17,12 @@ class VinoTextTheme {
       fontWeight: FontWeight.w600,
       color: ThemeData.dark().colorScheme.onSurface,
     ),
+
+    titleMedium: GoogleFonts.dmSans(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      height: 26 / 16,
+    ),
   );
 
   static final TextTheme lightTextTheme = GoogleFonts.dmSansTextTheme()
@@ -31,6 +37,11 @@ class VinoTextTheme {
           height: 33 / 23,
           fontWeight: FontWeight.w600,
           color: ThemeData().colorScheme.onSurface,
+        ),
+        titleMedium: GoogleFonts.dmSans(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          height: 26 / 16,
         ),
       );
 }
