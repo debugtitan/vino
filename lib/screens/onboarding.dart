@@ -84,7 +84,10 @@ class _OnboardingState extends State<Onboarding> {
                     width: double.infinity,
                     child: FilledButton(
                       onPressed: () {},
-                      child: const Text("Login"),
+                      child: Text(
+                        "Login",
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 14),
@@ -92,7 +95,13 @@ class _OnboardingState extends State<Onboarding> {
                     width: double.infinity,
                     child: OutlinedButton(
                       onPressed: () {},
-                      child: const Text("Create Account"),
+                      child: Text(
+                        "Create Account",
+                        style: Theme.of(context).textTheme.titleMedium!
+                            .copyWith(
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
