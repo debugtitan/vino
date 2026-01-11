@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vino/screens/auth/signin.dart';
 import 'package:vino/utils/constants/onboarding_items.dart';
 import 'package:vino/widgets/brand_text.dart';
 import 'package:vino/widgets/dots_indicators.dart';
@@ -83,7 +84,9 @@ class _OnboardingState extends State<Onboarding> {
                   SizedBox(
                     width: double.infinity,
                     child: FilledButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => Signin()),
+                      ),
                       child: Text(
                         "Login",
                         style: Theme.of(context).textTheme.titleMedium,
