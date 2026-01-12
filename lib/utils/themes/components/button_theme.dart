@@ -16,6 +16,7 @@ class VinoButtonTheme {
               : BrandColors.brand.withValues(alpha: 0.2),
           width: 1,
         ),
+        backgroundColor: isLightTheme ? Colors.white : BrandColors.outline,
       ),
     );
   }
