@@ -8,4 +8,5 @@ final class BrandColors {
   static const Color neutral = Color(0xFF6F6760);
   static const Color surface = Color(0xFF15100A);
   static const Color neutraDark = Color(0xFFB0A79F);
+  static const Color outline = Color(0xFF211C16);
 }
